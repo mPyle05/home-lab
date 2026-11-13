@@ -1,0 +1,20 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DOMAIN: ${VAULTWARDEN_DOMAIN:-https://vaultwarden.example.com}
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED:-false}
+    volumes:
+      - ./vw-data:/data/
+    ports:
+      - "8888:80"
+    networks:
+      - cloudflare_tunnelnet
+
+networks:
+  cloudflare_tunnelnet:
+    external: true

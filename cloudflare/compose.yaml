@@ -1,0 +1,18 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    container_name: cloudflared-master
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    restart: unless-stopped
+    networks:
+      - tunnelnet
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  tunnelnet:
+    name: cloudflare_tunnelnet
+    driver: bridge

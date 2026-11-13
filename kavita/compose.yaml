@@ -1,0 +1,22 @@
+services:
+  kavita:
+    container_name: kavita
+    image: lscr.io/linuxserver/kavita:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/New_York}
+    volumes:
+      - ./config:/config
+      - ${BOOKS_DIR:-/data}:/data
+    ports:
+      - 5000:5000
+    networks:
+      - cloudflare_tunnelnet
+
+networks:
+  cloudflare_tunnelnet:
+    external: true

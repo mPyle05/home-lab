@@ -1,0 +1,18 @@
+services:
+  obsidian-livesync:
+    container_name: obsidian-livesync
+    image: couchdb:3
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ${DATA_DIR:-./data}:/opt/couchdb/data
+      - ${ETC_DIR:-./etc}:/opt/couchdb/etc/local.d
+    ports:
+      - "5984:5984"
+    networks:
+      - cloudflare_tunnelnet
+
+networks:
+  cloudflare_tunnelnet:
+    external: true

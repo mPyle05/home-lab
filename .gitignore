@@ -1,0 +1,55 @@
+# -----------------------------------------------------------------------------
+# Environment & Secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+!*.env.example
+*.key
+*.pem
+*.crt
+*.pfx
+
+# -----------------------------------------------------------------------------
+# Service Configuration & State Directories (generated at container runtime)
+# -----------------------------------------------------------------------------
+**/config/
+**/data/
+**/appdata/
+**/etc/
+**/postgres/
+**/vw-data/
+**/matter-server/
+**/gluetun/
+**/qbittorrent/
+**/nzbget/
+**/prowlarr/
+**/sonarr/
+**/radarr/
+**/lidarr/
+**/bazarr/
+**/seerr/
+**/chaptarr/
+**/model-cache/
+
+# -----------------------------------------------------------------------------
+# Logs & Databases
+# -----------------------------------------------------------------------------
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# -----------------------------------------------------------------------------
+# Operating System & Editor Artifacts
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+.idea/
+.vscode/
+*.swp
+*~
