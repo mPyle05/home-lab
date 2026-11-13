@@ -1,9 +1,10 @@
-# Compose file for the *arr stack. Configuration files are stored in the
-# directory you launch the compose file on. Change to bind mounts if needed.
-# All containers are ran with user and group ids of the main user and
-# group to avoid permissions issues of downloaded files, please refer
-# the read me file for more information.
-
+# Compose file for the *arr stack.
+# Pulled and adapted from: https://github.com/TechHutTV/homelab (media stack)
+#
+# Configuration files are stored in the directory you launch the compose file on.
+# All containers run with the user and group IDs of your host user to avoid
+# permission issues with downloaded files.
+#
 #############################################################################
 # NOTICE: We use a .env file for sensitive keys, paths, and IP mapping.
 # Copy .env.example to .env and configure before starting.

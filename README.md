@@ -315,6 +315,9 @@ Exposes selected internal services to the internet securely via HTTPS without op
 
 ### 2. Media Automation & VPN (`servarr`)
 
+> [!NOTE]
+> The Servarr media stack configuration was adapted and pulled from [TechHutTV/homelab](https://github.com/TechHutTV/homelab) (see the `media` stack).
+
 The `servarr` stack runs all download clients strictly inside a **Gluetun VPN Pod**.
 - **DNS Leak Protection & Kill Switch**: If the WireGuard connection drops, internet access is severed immediately.
 - **Network Mode `service:gluetun`**: qBittorrent, NZBGet, Prowlarr, and FlareSolverr share Gluetun's network namespace and IP address.
@@ -422,6 +425,13 @@ docker system prune -a --volumes -f
 ```bash
 docker compose logs -f <service_name>
 ```
+
+---
+
+## 🙏 Credits & Acknowledgments
+
+- **[TechHutTV/homelab](https://github.com/TechHutTV/homelab)**: The `servarr` compose stack and Gluetun VPN routing configuration were adapted from TechHut's media stack.
+- **[TRaSH Guides](https://trash-guides.info/)**: Recommended atomic hardlink folder structures and automation workflows.
 
 ---
 
